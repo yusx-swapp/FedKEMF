@@ -35,7 +35,7 @@ source activate kdfl
 # the commands we're running are below
 
 nvidia-smi
-ml-gpu python3 knowlege_aggregation.py --comm_round=400 --k_model='resnet20' --model='resnet32' --dataset=cifar100 --batch-size=128 --epochs=20 --n_parties=10 --sample=0.7 --logdir='./logs_cifar100/'
+ml-gpu python3 knowlege_aggregation.py --comm_round=400 --k_model='resnet20' --model='resnet32' --dataset=cifar100 --batch-size=128 --epochs=20 --n_parties=10 --sample=0.7 --logdir='./logs/'
 
 #ml-gpu python3 knowlege_aggregation.py --comm_round=400 --model='simple-cnn' --dataset='mnist' --k_model='simple-cnn' --lr=0.001 --batch-size=128 --epochs=10 --n_parties=10 --sample=1 --logdir='./logs_femnist/'
 
