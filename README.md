@@ -16,6 +16,16 @@ Current code base is tested under following environment:
 FedKEMF is a resource-aware FL algorithm, which aggregate an ensemble of local knowledge extracted from edge models. 
 Different from exsisting works which aggregate the weights of each local model, FEDKEMF is distilled into a robust global knowledge as the server model through knowledge distillation.![](./logs/figure/overview.png)
 
+**Client local updates**
+![local updates](./figure/local_updates.png)
+Download knowledge network from cloud server and optimize it jointly
+with local model.
+
+**Multi-model Fusion in cloud**
+![](./figure/cloud_updates.png)
+Could server ensemble all the selected client models, and distillate the
+ensemble model's knowledge to cloud model.
+
 In this repository, we provide efficient federated learning experimental evaluation using FedKEMF. 
 We test FedKEMF
 on ResNet20, ResNet32, ResNet44, VGG-11/16, and 2-layer simple CNN on various benchmark Non-IID federated learning settings.
@@ -56,11 +66,10 @@ python3 knowlege_aggregation.py --comm_round=400 --k_model='resnet20' --model='r
 
 ##### Multi-model experiment
 
+
 ##### Experimental Results
-Federated learning results (Compare with SoTAs):
-![](./logs/figure/train_effi.png)
-Under different experiment settings:
-![](./logs/figure/train_effi_2.png)
+
+
 
 Communication cost savings to reach the target accuracy:
 ![](./logs/figure/com_cost.png)
