@@ -65,11 +65,8 @@ python3 knowlege_aggregation.py --comm_round=400 --k_model='resnet20' --model='r
    ```
 
 ##### Multi-model experiment
-
-
-##### Experimental Results
-
-
-
-Communication cost savings to reach the target accuracy:
-![](./logs/figure/com_cost.png)
+Multi-model experiment will randomly initialize the FL system with different type of client models.
+To run the multi-model experiments, you need enable the argument `--env=multi-model`:
+  ```angular2html
+python3 knowlege_aggregation.py --comm_round=400 --k_model='resnet20' --env=multi-model --dataset=cifar100 --batch-size=128 --epochs=20 --n_parties=10 --sample=0.7 --logdir='./logs/'
+   ```
