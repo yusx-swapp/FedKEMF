@@ -24,4 +24,3 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-RUN $HOME/conda/bin/conda install conda install pyg -c pyg
