@@ -9,7 +9,7 @@ import numpy as np
 
 from lib.fl import local_update, cloud_update, compute_accuracy
 
-from utils.load_neural_networks import init_nets
+from utils.load_neural_networks import init_nets, init_fl
 from utils.log_utils import mkdirs
 from utils.parameters import get_parameter
 from utils.data.prepare_data import partition_data, get_dataloader, sample_dataloader
@@ -75,7 +75,7 @@ if __name__ == '__main__':
     data_size = len(test_ds_global)
 
     logger.info("Initializing nets")
-    nets, local_model_meta_data, layer_type = init_nets(args.n_parties,args.model, args)
+    nets, local_model_meta_data, layer_type = init_fl(args.n_parties,args.model, args)
     global_models, global_model_meta_data, global_layer_type = init_nets( 1, args.k_model,args)
     global_model = global_models[0]
 

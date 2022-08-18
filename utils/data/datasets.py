@@ -103,7 +103,7 @@ class MNIST_truncated(data.Dataset):
         # to return a PIL Image
         img = Image.fromarray(img.numpy(), mode='L')
 
-        # print("mnist img:", img)
+        # print("mnist figure:", figure)
         # print("mnist target:", target)
 
         if self.transform is not None:
@@ -164,7 +164,7 @@ class FashionMNIST_truncated(data.Dataset):
         # to return a PIL Image
         img = Image.fromarray(img.numpy(), mode='L')
 
-        # print("mnist img:", img)
+        # print("mnist figure:", figure)
         # print("mnist target:", target)
 
         if self.transform is not None:
@@ -231,7 +231,7 @@ class SVHN_custom(data.Dataset):
             tuple: (image, target) where target is index of the target class.
         """
         img, target = self.data[index], self.target[index]
-        # print("svhn img:", img)
+        # print("svhn figure:", figure)
         # print("svhn target:", target)
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
@@ -470,7 +470,7 @@ class CIFAR10_truncated(data.Dataset):
         """
         img, target = self.data[index], self.target[index]
 
-        # print("cifar10 img:", img)
+        # print("cifar10 figure:", figure)
         # print("cifar10 target:", target)
 
         if self.transform is not None:

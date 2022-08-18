@@ -42,6 +42,8 @@ def get_parameter():
     parser.add_argument('--lr', type=float, default=0.01, help='learning rate (default: 0.01)')
     parser.add_argument('--lr_g', type=float, default=0.01, help='learning rate (default: 0.01)')
 
+
+    parser.add_argument('--env', default='regular', type=str, help='experiment environment regular/multi-model')
     parser.add_argument('--epochs', type=int, default=5, help='number of local epochs')
     parser.add_argument('--n_parties', type=int, default=2,  help='number of workers in a distributed cluster')
     parser.add_argument('--ckp_dir', type=str, default='ckp_dir/',  help='number of workers in a distributed cluster')

@@ -114,6 +114,28 @@ def load_model(model_name,data_root):
         raise KeyError
     return net
 
+def init_fl(n_parties,model_name, args):
+    if args.env == 'multi-model':
+        nets = {net_i: None for net_i in range(n_parties)}
+        net_name = ['resnet20','resnet32','resnet44']
+        for net_i in range(n_parties):
+            import random
+            net_type = net_name[random.randint(0, 2)]
+            net = resnet.__dict__[net_type]()
+            if args.ckpt_path is not None:
+                # path = os.path.join(data_root, "pretrained_models",'resnet56-4bfd9763.th')
+                checkpoint = torch.load(args.ckpt_path, map_location=args.device)
+                sd = checkpoint['state_dict'] if 'state_dict' in checkpoint else checkpoint
+                net.load_state_dict(sd)
+
+            net = torch.nn.DataParallel(net)
+            nets[net_i] = net
+
+        return nets, None, None
+    else:
+        return init_nets(n_parties,model_name, args)
+
+
 # def multi_model_res_family(n_parties):
 def init_nets(n_parties,model_name, args):
 
