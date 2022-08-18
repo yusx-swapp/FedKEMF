@@ -28,14 +28,14 @@ access within Docker containers. This can be found at
 [NVIDIA/nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
 
 
-### Build your images for SPATL
+### Build your images for FedKEMF
 
 Go to where the Dockerfile located `Docker/Dockerfile`. The Docker configuration is written in the Dockerfile.
 
 To build your local image, you could simply run the following command:
 
 ```bash
-$  docker build --tag spatl .
+$  docker build --tag FedKEMF .
 ```
 To see a list of images we have on our local machine,  simply run the `docker images` command.
 
@@ -57,8 +57,9 @@ docker run --rm -it --init \
   --ipc=host \
   --user="$(id -u):$(id -g)" \
   --volume="$PWD:/app" \
-  spatl python3 spatl_federated_learning.py --model=vgg --dataset=cifar10 --alg=gradient_control --lr=0.01 --batch-size=64 --epochs=5 --n_parties=30 --beta=0.1 --device='cuda' --datadir='./data/' --logdir='./logs/'  --noise=0 --sample=0.7 --rho=0.9 --comm_round=200 --init_seed=0
-```
+  FedKEMF python3 knowlege_aggregation.py --comm_round=200 --model='resnet20' --dataset=cifar10 --batch-size=128 --epochs=10 --n_parties=100 --sample=0.5 --logdir='./logs/'
+
+  ```
 
 Here's a description of the Docker command-line options shown above:
 
@@ -78,6 +79,6 @@ Here's a description of the Docker command-line options shown above:
 
 If you are going to reproduce different experiment results shown in the paper, you can
 change the hyper-parameter arguments, you can find all the listed arguments in the `utils/parameter.py`.
-To run different experiment, you can change the argument in ```python3 spatl_federated_learning.py --xxx xxx ```
+To run different experiment, you can change the argument in ```python3 knowlege_aggregation.py --xxx xxx ```
 
 
