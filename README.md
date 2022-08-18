@@ -13,15 +13,16 @@ Current code base is tested under following environment:
 
 
 ## FedKEMF Overview –– Efficient federated learning
-SPATL Overview. SPATL trains a shared encoder through federated learning, and transfers the  knowledge to heterogeneous clients. Clients upload salient parameters selected by a pre-trained RL-agent. The selected parameters are then aggregated by the server.
-![](./logs/figure/overview.png)
+FedKEMF is a resource-aware FL algorithm, which aggregate an ensemble of local knowledge extracted from edge models. 
+Different from exsisting works which aggregate the weights of each local model, FEDKEMF is distilled into a robust global knowledge as the server model through knowledge distillation.![](./logs/figure/overview.png)
 
-In this work, SPATL performs efficient federated learning throught salient parameter aggregation, transfer learning, and gradient control. We test SPATL
-on ResNet20, ResNet32, VGG-11, and 2-layer simple CNN.
+In this repository, we provide efficient federated learning experimental evaluation using FedKEMF. 
+We test FedKEMF
+on ResNet20, ResNet32, ResNet44, VGG-11/16, and 2-layer simple CNN on various benchmark Non-IID federated learning settings.
 
 ### Usage
 #### Running experiments through using Docker container
-The instruction for build the docker image for SPATL can be find in [Docker/README.md](Docker/README.md).
+The instruction for build the docker image for FedKEMF can be find in [Docker/README.md](Docker/README.md).
 Please follow the requirements to build the docker image. To reproducing the experiments, please follow the 
 instruction.
 
